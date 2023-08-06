@@ -9,16 +9,7 @@ export default function HomePage({ setPage }) {
     setPage(e.target.name);
   }
 
-  // Dummy news data
-  const newsData = [
-    "Alien on Earth?",
-    "Best tips to lose weigth",
-    "Are you paying to much for insurance?",
-    "Is Alchool bad for you?",
-    "Is pizza actually healthy?",
-    "Does reading makes you smarter?",
-    "Is your phone listening to you?",
-  ];
+  const newsData = ['bennett', 'cat']
 
   return (
     <>

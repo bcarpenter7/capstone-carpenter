@@ -8,6 +8,7 @@ import { Routes, Route } from 'react-router-dom'
 import NavBar from '../../components/NavBar/NavBar'
 import HomePage from '../HomePage/HomePage'
 import PostDetail from '../../components/PostDetail/PostDetail'
+import LoginPage from '../../components/LoginPage/LoginPage'
 
 
 
@@ -15,6 +16,7 @@ export default function App() {
   const [posts, setPosts] = useState([])
   const [currentArticle, setCurrentArticle] = useState(null)
   const [page, setPage] = useState(null)
+  const [user, setUser] = useState(false)
 
   // const getPosts = () => {
   //   axios.get('http://localhost:3000/posts')
@@ -67,8 +69,12 @@ export default function App() {
   }, [])
 
 
- 
-      if(page === null || page === "null"){
+
+    
+
+
+    if(user){
+    if(page === null || page === "null"){
         return (
           <>
           <NavBar setPage={setPage} setCurrentArticle={setCurrentArticle}/>
@@ -131,32 +137,26 @@ export default function App() {
         )
       }
 
-      // if(page === "detail"){
-      //   return (
-      //       <>
-      //         <NavBar setPage={setPage}/>
-      //         {/* <h1>All Posts</h1> */}
-      //         <Routes>
-      //           <Route 
-      //               path="/" 
-      //               element={
-      //                 <PostDetail id={id}/>
-      //               }>
-
-      //           </Route>
-      //         </Routes>
-      //       </>
-
-      //   )
-      // }
-    
-      
-
-         
-         
-
 
       
-      
+    } else {
+      return (
+        <>
+          <Routes>
+            <Route 
+                path="/" 
+                element={
+                  <LoginPage />
+                }>
 
+            </Route>
+          </Routes>
+        </>
+
+    )
+
+
+
+
+    }
 }
