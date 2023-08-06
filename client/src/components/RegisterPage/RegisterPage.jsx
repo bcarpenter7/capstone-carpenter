@@ -3,10 +3,14 @@ import { useState } from 'react'
 
 
 
-export default function LoginPage({ allUsers }){
+export default function RegisterPage({ allUsers, handleCreateUser }){
 const [cred, setCred] = useState({
     username: "",
-    password: ""
+    password: "",
+    friends: "",
+    img: "",
+    firstName: "",
+    lastName: ""
 })
 
 function handleChange(e){
@@ -15,23 +19,24 @@ function handleChange(e){
 
 function handleSubmit(e){
     e.preventDefault()
-    if(allUsers.find(cred.username)){
-        console.log("cred")
-    } else {
-        console.log( "failed cred")
-    }
+    handleCreateUser(cred)
+    console.log(allUsers, cred)
 }
 
     return(
         <>
         <div className="homeDiv">
 
-        <h1>Login Here</h1>
+        <h1>Register Here</h1>
         <form className="form" onSubmit={handleSubmit}>
             <label>Username:</label>
             <input placeholder="username" onChange={handleChange} name="username"></input>
             <label>Password:</label>
             <input placeholder="password" onChange={handleChange} name="password"></input>
+            <label>First Name</label>
+            <input placeholder="password" onChange={handleChange} name="firstName"></input>
+            <label>Last Name:</label>
+            <input placeholder="password" onChange={handleChange} name="lastName"></input>
             <button onClick={handleSubmit}>Login</button>
         </form>
         </div>

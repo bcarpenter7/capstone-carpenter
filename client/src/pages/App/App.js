@@ -9,6 +9,7 @@ import NavBar from '../../components/NavBar/NavBar'
 import HomePage from '../HomePage/HomePage'
 import PostDetail from '../../components/PostDetail/PostDetail'
 import LoginPage from '../../components/LoginPage/LoginPage'
+import RegisterPage from '../../components/RegisterPage/RegisterPage'
 
 
 
@@ -17,18 +18,14 @@ export default function App() {
   const [currentArticle, setCurrentArticle] = useState(null)
   const [page, setPage] = useState(null)
   const [user, setUser] = useState(false)
+  const [allUsers, setAllUsers] = useState(null)
 
-  // const getPosts = () => {
-  //   axios.get('http://localhost:3000/posts')
-  //     .then((response) => setPosts(response.data), (err) => console.log(err))
-  //     .catch((error) => console.log(error))
-  // }
 
+  // POSTS
   async function getPosts(){
     try {
       const res = await axios.get('http://localhost:3000/api/posts')
       setPosts(res.data)
-      console.log(res.data)
     } catch (err){
       console.error(err)
     }
@@ -63,14 +60,52 @@ export default function App() {
       })
   }
 
+  // USERS
+  async function getUsers(){
+    try {
+      const res = await axios.get('http://localhost:3000/api/users')
+      setAllUsers(res.data)
+    } catch (err){
+      console.error(err)
+    }
+  }
+
+  const handleCreateUser = (createdUser) => {
+    axios.post('http://localhost:3000/api/users', createdUser)
+      .then((response) => {
+        setAllUsers([...allUsers, response.data])
+      })
+  }
+
+  const handleEditUser = (editedUser) => {
+    axios.put('http://localhost:3000/api/users/' + editedUser._id, editedUser)
+      .then((response) => {
+        let newUser = allUsers.map((user) => {
+          return user._id !== editedUser._id ? user : editedUser
+        })
+        setAllUsers(newUser)
+      })
+  }
+
+  const handleDeleteUser = (deletedUser) => {
+    axios.delete('http://localhost:3000/api/users/' + deletedUser)
+      .then((response) => {
+        let newUsers = allUsers.filter((user) => {
+          return user._id !== deletedUser
+        })
+        setAllUsers(newUsers)
+      })
+  }
 
   useEffect(() => {
     getPosts()
+   
   }, [])
 
-
-
-    
+  useEffect(() => {
+    getUsers()
+   
+  }, [])
 
 
     if(user){
@@ -146,7 +181,11 @@ export default function App() {
             <Route 
                 path="/" 
                 element={
-                  <LoginPage />
+                  <>
+                   <LoginPage allUsers={allUsers}/>
+                    <RegisterPage allUsers={allUsers} handleCreateUser={handleCreateUser} />
+                  </>
+                 
                 }>
 
             </Route>
