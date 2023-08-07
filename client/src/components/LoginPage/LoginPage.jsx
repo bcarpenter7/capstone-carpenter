@@ -1,9 +1,9 @@
 import { useState } from 'react'
+import "./LoginPage.css"
 
 
 
-
-export default function LoginPage({ allUsers }){
+export default function LoginPage({ allUsers, setUser }){
 const [cred, setCred] = useState({
     username: "",
     password: ""
@@ -15,10 +15,18 @@ function handleChange(e){
 
 function handleSubmit(e){
     e.preventDefault()
-    if(allUsers.find(cred.username)){
-        console.log("cred")
+    console.log(cred, allUsers[0].username)
+
+    const exist = allUsers.filter(e => e.username === cred.username && e.password === cred.password)
+    
+    if(exist.length > 0){
+        console.log("in the case which the credentials are correct")
+        document.getElementById('errorMsg').style.opacity = 0;
+        setUser(...exist)
+        console.log(...exist)
     } else {
-        console.log( "failed cred")
+        console.log(false, exist)
+        document.getElementById('errorMsg').style.opacity = 1;
     }
 }
 
@@ -32,6 +40,7 @@ function handleSubmit(e){
             <input placeholder="username" onChange={handleChange} name="username"></input>
             <label>Password:</label>
             <input placeholder="password" onChange={handleChange} name="password"></input>
+            <h1 id="errorMsg" className="hidden">Incorrect username or password</h1>
             <button onClick={handleSubmit}>Login</button>
         </form>
         </div>

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import './HomePage.css';
 import '../../index.css';
 
-export default function HomePage({ setPage }) {
+export default function HomePage({ setPage}) {
   const [nav, setNav] = useState({});
 
   function handleClick(e) {
@@ -23,6 +23,7 @@ export default function HomePage({ setPage }) {
           <button name="postForm" onClick={handleClick}>
             Click here to add an article
           </button>
+          
         </div>
       </div>
   

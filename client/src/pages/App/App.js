@@ -112,13 +112,13 @@ export default function App() {
     if(page === null || page === "null"){
         return (
           <>
-          <NavBar setPage={setPage} setCurrentArticle={setCurrentArticle}/>
+          <NavBar setPage={setPage} setCurrentArticle={setCurrentArticle} user={user} setUser={setUser}/>
          
               <Routes>
                 <Route 
                     path="/" 
                     element={
-                      <HomePage setPage={setPage}/>
+                      <HomePage setPage={setPage} user={user}/>
                     }>
 
                 </Route>
@@ -130,7 +130,7 @@ export default function App() {
       if(page === "index" || page === "indexUpdate"){
         return (
             <>
-              <NavBar setPage={setPage} setCurrentArticle={setCurrentArticle}/>
+              <NavBar setPage={setPage} setCurrentArticle={setCurrentArticle} user={user} setUser={setUser}/>
               {/* <h1>All Posts</h1> */}
               <Routes>
                 <Route 
@@ -156,7 +156,7 @@ export default function App() {
       if(page === "postform"){
         return (
             <>
-              <NavBar setPage={setPage} setCurrentArticle={setCurrentArticle}/>
+              <NavBar setPage={setPage} setCurrentArticle={setCurrentArticle} user={user} setUser={setUser}/>
               {/* <h1>All Posts</h1> */}
               <Routes>
                 <Route 
@@ -182,7 +182,7 @@ export default function App() {
                 path="/" 
                 element={
                   <>
-                   <LoginPage allUsers={allUsers}/>
+                   <LoginPage allUsers={allUsers} setUser={setUser}/>
                     <RegisterPage allUsers={allUsers} handleCreateUser={handleCreateUser} />
                   </>
                  
