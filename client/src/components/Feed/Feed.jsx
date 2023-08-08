@@ -4,7 +4,7 @@ import '../../index.css'
 import { useState } from 'react'
 import PostDetail from '../PostDetail/PostDetail' 
 
-export default function Feed({ posts, currentArticle, setCurrentArticle, handleDelete, handleEdit, setPage, user, handleEditUser}) {
+export default function Feed({ posts, currentArticle, allUsers, setCurrentArticle, handleDelete, handleEdit, setPage, user, handleEditUser}) {
     // const [currentArticle, setCurrentArticle] = useState("64c3e10928aa2fe7e8476947")
     const [temp, setTemp] = useState({
         username: user.username,
@@ -13,7 +13,8 @@ export default function Feed({ posts, currentArticle, setCurrentArticle, handleD
         img: user.img,
         firstName: user.firstName,
         lastName: user.lastName,
-        posts: user.posts
+        posts: user.posts,
+        _id: user._id
     })
 
 
@@ -21,6 +22,12 @@ export default function Feed({ posts, currentArticle, setCurrentArticle, handleD
     function handleChange(e){
         console.log(e.target.name)
         setCurrentArticle(e.target.name)
+    }
+
+    function handleRemoveFriend(e){
+        const indexOfRemove = temp.friendsList.indexOf(e.target.name)
+        temp.friendsList.splice(indexOfRemove, 1)
+        handleEditUser(temp)
     }
     // const friendFeed = posts.map((p) => user.friendList.includes(p._id))
 
@@ -48,15 +55,14 @@ export default function Feed({ posts, currentArticle, setCurrentArticle, handleD
                     <img className="img" src={p.img} /> 
                 </div>
                 <div>
-                    <h4>{p.author}  <span className="date">{
-               
-                    // p.updatedAt.slice(0, 10) ? p.createdAt.slice(0, 10) : p.updatedAt.slice(0, 10)
-                    
-                    }</span></h4>
-                    <h1>{p.title}</h1>
+                    <h4>{allUsers.filter(e => e._id === p.creatorId)[0].firstName} {allUsers.filter(e => e._id === p.creatorId)[0].lastName} 
+                    <span className="date">{ 
+                        p.updatedAt.slice(0, 10) ? p.createdAt.slice(0, 10) : p.updatedAt.slice(0, 10)
+                        }</span></h4>
+                    <h3 className="previewText">{p.content}</h3>
                     {/* <h3 className="previewText">{p.content.slice(0, p.content.indexOf('.') + 1)}</h3> */}
                     <button name={p._id} onClick={handleChange}>Click to Read More</button>
-                    <button name={p.creatorId} onClick={handleAddFriend}>Add Friend</button>
+                    <button name={p.creatorId} onClick={handleRemoveFriend}>Unfollow</button>
                  
                    
                 </div>

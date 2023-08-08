@@ -2,7 +2,7 @@ import { useState } from 'react';
 import './HomePage.css';
 import '../../index.css';
 
-export default function HomePage({ setPage, user, posts}) {
+export default function HomePage({ setPage, user, posts, setCurrentArticle}) {
   const [nav, setNav] = useState({});
   console.log(user)
   function handleClick(e) {
@@ -20,6 +20,14 @@ export default function HomePage({ setPage, user, posts}) {
   }
 
   const userPosts = posts.filter(p => p.creatorId === user._id)
+
+
+  function handleChange(e){
+    console.log(e.target.name)
+    setCurrentArticle(e.target.name)
+    setPage("index")
+}
+
 
   return (
     <>
@@ -44,7 +52,7 @@ export default function HomePage({ setPage, user, posts}) {
                         }</span></h4>
                         <h1>{p.title}</h1>
                         <h3 className="previewText">{p.content.slice(0, p.content.indexOf('.') + 1)}</h3>
-                        <button name={p._id} onClick="handleChange">Click to Read More</button>
+                        <button name={p._id} onClick={handleChange}>Click to Read More</button>
                     
                       
                     </div>

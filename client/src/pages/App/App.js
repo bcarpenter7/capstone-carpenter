@@ -81,9 +81,12 @@ export default function App() {
     axios.put('http://localhost:3000/api/users/' + editedUser._id, editedUser)
       .then((response) => {
         let newUser = allUsers.map((user) => {
+          
           return user._id !== editedUser._id ? user : editedUser
         })
+        console.log(newUser, "newUser handleEdit")
         setAllUsers(newUser)
+        setUser(editedUser)
       })
   }
 
@@ -118,7 +121,7 @@ export default function App() {
                 <Route 
                     path="/" 
                     element={
-                      <HomePage setPage={setPage} user={user} posts={posts}/>
+                      <HomePage setPage={setPage} user={user} posts={posts} setCurrentArticle={setCurrentArticle}/>
                     }>
 
                 </Route>
@@ -144,6 +147,7 @@ export default function App() {
                       handleEdit={handleEdit}
                       setPage={setPage}
                       user={user}
+                      allUsers={allUsers}
                       handleEditUser={handleEditUser}
                       />
                     }>
@@ -173,6 +177,7 @@ export default function App() {
                       setPage={setPage}
                       user={user}
                       handleEditUser={handleEditUser}
+                      allUsers={allUsers}
                       />
                     }>
 
