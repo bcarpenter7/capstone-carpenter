@@ -17,7 +17,7 @@ export default function Feed({ posts, currentArticle, allUsers, setCurrentArticl
         _id: user._id
     })
 
-
+    console.log(user, "USER", temp, "temp")
 
     function handleChange(e){
         console.log(e.target.name)
@@ -32,12 +32,12 @@ export default function Feed({ posts, currentArticle, allUsers, setCurrentArticl
     // const friendFeed = posts.map((p) => user.friendList.includes(p._id))
 
 
-    function handleAddFriend(e){
-        console.log(temp.friendsList, "friendsList")
-        temp.friendsList.push(e.target.name)
-        // setTemp({...temp, [temp.friendsList.p]: [...temp.friendsList, e.target.name]})
-        console.log(temp.friendsList)
-    }
+    // function handleAddFriend(e){
+    //     console.log(temp.friendsList, "friendsList")
+    //     temp.friendsList.push(e.target.name)
+    //     // setTemp({...temp, [temp.friendsList.p]: [...temp.friendsList, e.target.name]})
+    //     console.log(temp.friendsList)
+    // }
     console.log(temp.friendsList, "friendsList")
     const friendFeed = posts.filter((p) => user.friendsList.includes(String(p.creatorId)))
     console.log(user.friendsList, user.friendsList.includes(Number(posts[0].creatorId)), posts[0].creatorId, 'test')
@@ -78,7 +78,7 @@ export default function Feed({ posts, currentArticle, allUsers, setCurrentArticl
             const article = posts.find(p => p._id == currentArticle)
             return (
             <>      
-               <PostDetail article={article} handleEdit={handleEdit} setPage={setPage} handleDelete={handleDelete} setCurrentArticle={setCurrentArticle} />
+               <PostDetail article={article} handleEdit={handleEdit} setPage={setPage} handleDelete={handleDelete} setCurrentArticle={setCurrentArticle} user={user}/>
             </>
             )
         }
