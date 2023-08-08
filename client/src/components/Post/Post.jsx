@@ -101,7 +101,7 @@ export default function Post({
             const article = posts.find(p => p._id == currentArticle)
             return (
             <>      
-               <PostDetail article={article} handleEdit={handleEdit} setPage={setPage} handleDelete={handleDelete} setCurrentArticle={setCurrentArticle} />
+               <PostDetail article={article} handleEdit={handleEdit} setPage={setPage} handleDelete={handleDelete} setCurrentArticle={setCurrentArticle} user={user} />
             </>
             )
         }
