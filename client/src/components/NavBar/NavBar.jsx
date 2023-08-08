@@ -20,6 +20,7 @@ export default function NavBar({ setPage, setCurrentArticle, user, setUser }){
                 <button name="index" onClick={handleChange}>See All Articles</button>
                 &nbsp; | &nbsp;
                 <button name="postform" onClick={handleChange}>Add Article</button>
+                <button name="feed" onClick={handleChange}>Newsfeed</button>
                 <button onClick={handleLogout}>
                 Logout, {user.username}
                 </button>

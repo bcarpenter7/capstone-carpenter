@@ -30,7 +30,7 @@ function handleSubmit(e){
     }
 }
 
-    return(
+    return (
         <>
         <div className="homeDiv">
 

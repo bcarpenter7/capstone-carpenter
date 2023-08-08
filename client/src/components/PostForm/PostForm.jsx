@@ -3,13 +3,14 @@ import '../../index.css'
 import './PostForm.css'
 
 
-export default function PostForm({ handleCreate, setPage }){
+export default function PostForm({ handleCreate, setPage, user }){
     const [tempPost, setTempPost] = useState({
         author: '',
         title: '',
         content: '',
         likes: 0,
-        img: ''
+        img: '',
+        creatorId: user._id
     })
 
     function handleChange(e){

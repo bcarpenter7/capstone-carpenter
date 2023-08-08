@@ -3,14 +3,15 @@ import "./RegisterPage.css"
 
 
 
-export default function RegisterPage({ allUsers, handleCreateUser }){
+export default function RegisterPage({ allUsers, handleCreateUser, setUser }){
 const [cred, setCred] = useState({
     username: "",
     password: "",
-    friends: "",
+    friendsList: "",
     img: "",
     firstName: "",
-    lastName: ""
+    lastName: "",
+    posts: []
 })
 
 function handleChange(e){
@@ -27,6 +28,7 @@ function handleSubmit(e){
     } else {
         console.log("username is unique, creating a new account")
         handleCreateUser(cred)
+        setUser(cred)
         document.getElementById('errorMsgTwo').style.opacity = 0;
     }
 }

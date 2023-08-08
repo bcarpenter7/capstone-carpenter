@@ -10,7 +10,7 @@ import HomePage from '../HomePage/HomePage'
 import PostDetail from '../../components/PostDetail/PostDetail'
 import LoginPage from '../../components/LoginPage/LoginPage'
 import RegisterPage from '../../components/RegisterPage/RegisterPage'
-
+import Feed from '../../components/Feed/Feed'
 
 
 export default function App() {
@@ -118,7 +118,7 @@ export default function App() {
                 <Route 
                     path="/" 
                     element={
-                      <HomePage setPage={setPage} user={user}/>
+                      <HomePage setPage={setPage} user={user} posts={posts}/>
                     }>
 
                 </Route>
@@ -143,6 +143,36 @@ export default function App() {
                       handleDelete={handleDelete}
                       handleEdit={handleEdit}
                       setPage={setPage}
+                      user={user}
+                      handleEditUser={handleEditUser}
+                      />
+                    }>
+
+                </Route>
+              </Routes>
+            </>
+
+        )
+      }
+
+      if(page === "feed" || page === "indexUpdate"){
+        return (
+            <>
+              <NavBar setPage={setPage} setCurrentArticle={setCurrentArticle} user={user} setUser={setUser}/>
+              {/* <h1>All Posts</h1> */}
+              <Routes>
+                <Route 
+                    path="/" 
+                    element={
+                      <Feed 
+                      posts={posts} 
+                      currentArticle={currentArticle} 
+                      setCurrentArticle={setCurrentArticle} 
+                      handleDelete={handleDelete}
+                      handleEdit={handleEdit}
+                      setPage={setPage}
+                      user={user}
+                      handleEditUser={handleEditUser}
                       />
                     }>
 
@@ -162,7 +192,7 @@ export default function App() {
                 <Route 
                     path="/" 
                     element={
-                      <PostForm handleCreate={handleCreate} setPage={setPage}/>
+                      <PostForm handleCreate={handleCreate} setPage={setPage} user={user}/>
                     }>
 
                 </Route>
@@ -183,7 +213,7 @@ export default function App() {
                 element={
                   <>
                    <LoginPage allUsers={allUsers} setUser={setUser}/>
-                    <RegisterPage allUsers={allUsers} handleCreateUser={handleCreateUser} />
+                    <RegisterPage allUsers={allUsers} handleCreateUser={handleCreateUser} setUser={setUser}/>
                   </>
                  
                 }>
