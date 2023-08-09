@@ -87,13 +87,15 @@ export default function Post({
                     <h3 className="previewText">{p.content}</h3>
                     <button name={p._id} onClick={handleChange}>Click to View</button>
                         {/* user.friendsList.includes(String(p.creatorId)) */}
-                     { temp.friendsList.includes(String(p.creatorId)) ? (
-                        <button className="badBtn" name={p.creatorId} onClick={handleRemoveFriend}>Following</button>
-                      ) : (
-                        <button className="goodBtn" name={p.creatorId} onClick={handleAddFriend}>Follow</button>
-                      )
-                      }
-                
+
+               
+                                { temp.friendsList.includes(String(p.creatorId)) ? (
+                                    <button className="badBtn" name={p.creatorId} onClick={handleRemoveFriend}>Following</button>
+                                ) : (
+                                    <button className="goodBtn" name={p.creatorId} onClick={handleAddFriend}>Follow</button>
+                                )
+                                }
+                  
                     
                     
                  

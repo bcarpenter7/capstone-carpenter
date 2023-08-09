@@ -4,8 +4,6 @@ import { useState } from 'react'
 export default function EditPost({ article, handleEdit, setPage, setEditMode}){
     
     const [tempPost, setTempPost] = useState({
-        author: article.author,
-        title: article.title,
         content: article.content,
         img: article.img,
         likes: article.likes,
@@ -31,27 +29,9 @@ export default function EditPost({ article, handleEdit, setPage, setEditMode}){
     return(
         <>
             <div className="addDiv">
-            <h1 className="articleHeader">Add Article</h1>
+            <h1 className="articleHeader">Edit Post</h1>
             <form className="form" onSubmit={handleSubmit}>
               
-                <div>
-                    <label>Enter Author</label>
-                    <input 
-                    value={tempPost.author} 
-                    name="author"
-                    onChange={handleChange}
-                    />
-                </div>
-                
-                <div>
-                    <label>Enter Title</label>
-                    <input 
-                    value={tempPost.title} 
-                    name="title"
-                    onChange={e => handleChange(e)}
-                    />
-                </div>
-               
                 <div>
                     <label>Enter Content</label>
                     <textarea
