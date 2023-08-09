@@ -69,7 +69,17 @@ export default function Post({
                 <div>
                       {/* Code below with allUsers, filters through users to pick the user responsible for the post so you can use their info*/}
 
-                    <h4>{allUsers.filter(e => e._id === p.creatorId)[0].firstName} {allUsers.filter(e => e._id === p.creatorId)[0].lastName}  
+                    {/* <h4>{allUsers.filter(e => e._id === p.creatorId)[0].firstName} {allUsers.filter(e => e._id === p.creatorId)[0].lastName}  
+                    
+                    */}
+
+                 
+
+                    <h4>
+                        {allUsers.find(e => e._id === p.creatorId) ? `${allUsers.find(e => e._id === p.creatorId).firstName} ${allUsers.find(e => e._id === p.creatorId).lastName}` : 'Unknown User'}
+                    
+
+
                         <span className="date">{ 
                         p.updatedAt.slice(0, 10) ? p.createdAt.slice(0, 10) : p.updatedAt.slice(0, 10)
                         }</span>

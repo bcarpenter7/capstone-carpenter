@@ -11,7 +11,8 @@ export default function EditPost({ article, handleEdit, setPage, setEditMode}){
         likes: article.likes,
         _id: article._id,
         createdAt : article.createdAt,
-        updatedAt : article.updatedAt
+        updatedAt : article.updatedAt,
+        creatorId : article.creatorId
     })
    
     function handleChange(e){

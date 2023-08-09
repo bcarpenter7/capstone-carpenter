@@ -66,7 +66,6 @@ if(!accountExists){
 } else {
     return (
         <LoginPage allUsers={allUsers} setUser={setUser}/>
-
     )
 }
 }
