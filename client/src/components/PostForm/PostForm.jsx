@@ -5,8 +5,6 @@ import './PostForm.css'
 
 export default function PostForm({ handleCreate, setPage, user }){
     const [tempPost, setTempPost] = useState({
-        author: '',
-        title: '',
         content: '',
         likes: 0,
         img: '',
@@ -28,26 +26,6 @@ export default function PostForm({ handleCreate, setPage, user }){
             <div className="addDiv">
             <h1 className="articleHeader">Add Article</h1>
             <form className="form" onSubmit={handleSubmit}>
-                <div>
-                    <label>Enter Author</label>
-                    < br/>
-                    <input 
-                    value={tempPost.author} 
-                    name="author"
-                    onChange={handleChange}
-                    />
-                </div>
-                
-                <div>
-                    <label>Enter Title</label>
-                    < br/>
-                    <input 
-                    value={tempPost.title} 
-                    name="title"
-                    onChange={e => handleChange(e)}
-                    />
-                </div>
-               
                 <div>
                     <label>Enter Content</label>
                     <textarea 

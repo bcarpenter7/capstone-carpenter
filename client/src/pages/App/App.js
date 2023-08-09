@@ -217,7 +217,7 @@ export default function App() {
                 path="/" 
                 element={
                   <>
-                   <LoginPage allUsers={allUsers} setUser={setUser}/>
+                   {/* <LoginPage allUsers={allUsers} setUser={setUser}/> */}
                     <RegisterPage allUsers={allUsers} handleCreateUser={handleCreateUser} setUser={setUser}/>
                   </>
                  

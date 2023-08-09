@@ -1,9 +1,10 @@
 import { useState } from 'react'
 import "./RegisterPage.css"
-
+import LoginPage from '../LoginPage/LoginPage'
 
 
 export default function RegisterPage({ allUsers, handleCreateUser, setUser }){
+const [accountExists, setAccountExist] = useState(false)
 const [cred, setCred] = useState({
     username: "",
     password: "",
@@ -13,6 +14,10 @@ const [cred, setCred] = useState({
     lastName: "",
     posts: []
 })
+
+function handleExists(){
+    setAccountExist(true)
+}
 
 function handleChange(e){
     setCred({...cred, [e.target.name]: e.target.value })
@@ -28,12 +33,13 @@ function handleSubmit(e){
     } else {
         console.log("username is unique, creating a new account")
         handleCreateUser(cred)
-        setUser(cred)
+        // setUser(cred)
         document.getElementById('errorMsgTwo').style.opacity = 0;
     }
 }
 
-    return(
+if(!accountExists){
+    return (
         <>
         <div className="homeDiv">
 
@@ -49,6 +55,7 @@ function handleSubmit(e){
             <input placeholder="password" onChange={handleChange} name="lastName"></input>
             <h1 id="errorMsgTwo" className="hidden">An account already exists with this username.</h1>
             <button onClick={handleSubmit}>Login</button>
+            <button onClick={handleExists}>Already have an account? Click to log in</button>
         </form>
         </div>
        
@@ -56,4 +63,10 @@ function handleSubmit(e){
 
 
     )
+} else {
+    return (
+        <LoginPage allUsers={allUsers} setUser={setUser}/>
+
+    )
+}
 }
