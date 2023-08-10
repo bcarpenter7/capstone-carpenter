@@ -9,5 +9,24 @@
 }
 
 .profilePicture {
-  width: 30vmin;
+  width: 20vmin;
+  height: 20vmin;
+}
+
+.nameDiv {
+  display: flex;
+  flex-direction: row;
+  gap: 3vmin;
+}
+
+.userName {
+  font-size: 5vmin;
+}
+
+.editBtn {
+  background-color: rgb(202, 202, 250);
+  padding: 1vmin;
+  border-radius: 100px;
+  border: none;
+  color: white;
 }

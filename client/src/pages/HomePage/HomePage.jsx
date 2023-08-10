@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import './HomePage.css';
 import '../../index.css';
+import UpdateProfile from '../../UpdateProfile/UpdateProfile'
 
-export default function HomePage({ setPage, user, posts, setCurrentArticle}) {
+export default function HomePage({ setPage, user, posts, setCurrentArticle, handleEditUser}) {
   const [nav, setNav] = useState({});
+  const [editMode, setEditMode] = useState(false)
   console.log(user)
   function handleClick(e) {
     setPage(e.target.name);
@@ -28,14 +30,22 @@ export default function HomePage({ setPage, user, posts, setCurrentArticle}) {
     setPage("index")
 }
 
+function handleEdit(e){
+setEditMode(true)
+}
+
+if(!editMode){
 
   return (
     <>
       <div className="homeDiv">
-        <h1>{user._id}</h1>
-        <h1 className="title">{user.firstName} {user.lastName}</h1>
-        <img className="profilePicture" src={picture}></img>
+        <div className="nameDiv">
+          <img className="profilePicture" src={picture}></img>
+          <h1 className="userName">{user.firstName} {user.lastName}</h1>
+        </div>
+        <button className="editBtn" name={user._id} onClick={handleEdit}>Edit Profile</button>
         <h3 className="second">Welcome to your profile page</h3>
+        
         <div>
         { userPosts.map((p, idx) => (
 
@@ -53,6 +63,7 @@ export default function HomePage({ setPage, user, posts, setCurrentArticle}) {
                         <h1>{p.title}</h1>
                         <h3 className="previewText">{p.content.slice(0, p.content.indexOf('.') + 1)}</h3>
                         <button name={p._id} onClick={handleChange}>Click to Read More</button>
+                        
                     
                       
                     </div>
@@ -66,4 +77,7 @@ export default function HomePage({ setPage, user, posts, setCurrentArticle}) {
   
     </>
   );
+    } else if(editMode) {
+      return (<UpdateProfile user={user} handleEditUser={handleEditUser} setEditMode={setEditMode}/>)
+    }
 }

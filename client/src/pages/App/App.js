@@ -121,7 +121,7 @@ export default function App() {
                 <Route 
                     path="/" 
                     element={
-                      <HomePage setPage={setPage} user={user} posts={posts} setCurrentArticle={setCurrentArticle}/>
+                      <HomePage setPage={setPage} user={user} posts={posts} setCurrentArticle={setCurrentArticle} handleEditUser={handleEditUser}/>
                     }>
 
                 </Route>
