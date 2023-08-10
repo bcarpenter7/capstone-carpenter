@@ -38,12 +38,12 @@ if(!editMode){
 
   return (
     <>
-      <div className="homeDiv">
+      <div className="homeDiv font-sans">
         <div className="nameDiv">
           <img className="profilePicture" src={picture}></img>
           <h1 className="userName">{user.firstName} {user.lastName}</h1>
         </div>
-        <button className="editBtn" name={user._id} onClick={handleEdit}>Edit Profile</button>
+        <button className="font-sans text-[13px] md:text-sm leading-4 inline-flex items-center cursor-pointer transition ease-in-out duration-300 font-semibold font-body text-center justify-center border-0 border-transparent placeholder-white focus-visible:outline-none focus:outline-none  bg-black text-white px-5 md:px-6 lg:px-8 py-4 md:py-3.5 lg:py-4 hover:text-white hover:bg-gray-600 hover:shadow-cart h-12 lg:h-14 mt-1 text-sm lg:text-base w-full sm:w-auto" name={user._id} onClick={handleEdit}>Edit Profile</button>
         <h3 className="second">Welcome to your profile page</h3>
         
         <div>
@@ -62,7 +62,8 @@ if(!editMode){
                         }</span></h4>
                         <h1>{p.title}</h1>
                         <h3 className="previewText">{p.content.slice(0, p.content.indexOf('.') + 1)}</h3>
-                        <button name={p._id} onClick={handleChange}>Click to Read More</button>
+                        <button className="font-sans text-[13px] md:text-sm leading-4 inline-flex items-center cursor-pointer transition ease-in-out duration-300 font-semibold font-body text-center justify-center border-0 border-transparent placeholder-white focus-visible:outline-none focus:outline-none  bg-black text-white px-5 md:px-6 lg:px-8 py-4 md:py-3.5 lg:py-4 hover:text-white hover:bg-gray-600 hover:shadow-cart h-12 lg:h-14 mt-1 text-sm lg:text-base w-full sm:w-auto"
+                        name={p._id} onClick={handleChange}>Click to Read More</button>
                         
                     
                       

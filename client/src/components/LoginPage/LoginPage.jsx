@@ -34,7 +34,7 @@ function handleSubmit(e){
         <>
         <div className="p-8 bg-slate-200 rounded mx-auto mt-20 max-w-[80vmin] px-4 md:px-8 2xl:px-16 md:w-full lg:w-3/5 2xl:w-4/6 flex h-full ltr:md:ml-7 rtl:md:mr-7 flex-col ltr:lg:pl-7 rtl:lg:pr-7">
 
-        <h4 class="text-2xl 2xl:text-3xl font-bold text-heading mb-10">
+        <h4 className="text-2xl 2xl:text-3xl font-bold text-heading mb-10">
               Login Here
         </h4>
         <form className="w-full mx-auto flex flex-col justify-center" onSubmit={handleSubmit}>
