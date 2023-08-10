@@ -38,7 +38,7 @@ if(!editMode){
 
   return (
     <>
-      <div className="homeDiv font-sans">
+      <div className="p-8 bg-slate-200 rounded mx-auto mt-20 max-w-[80vmin] px-4 md:px-8 2xl:px-16 md:w-full lg:w-3/5 2xl:w-4/6 flex h-full ltr:md:ml-7 rtl:md:mr-7 flex-col ltr:lg:pl-7 rtl:lg:pr-7">
         <div className="nameDiv">
           <img className="profilePicture" src={picture}></img>
           <h1 className="userName">{user.firstName} {user.lastName}</h1>

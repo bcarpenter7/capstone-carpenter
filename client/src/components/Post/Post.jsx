@@ -57,7 +57,7 @@ export default function Post({
     if(currentArticle === null){
     return (
         <>
-        <div className="homeDiv">
+        <div className="p-8 bg-slate-200 rounded mx-auto mt-20 max-w-[80vmin] px-4 md:px-8 2xl:px-16 md:w-full lg:w-3/5 2xl:w-4/6 flex h-full ltr:md:ml-7 rtl:md:mr-7 flex-col ltr:lg:pl-7 rtl:lg:pr-7">
         <h1 className='title1'>Explore</h1>
         { posts.map((p, idx) => (
 
@@ -67,32 +67,24 @@ export default function Post({
                     <img className="img" src={p.img} /> 
                 </div>
                 <div>
-                      {/* Code below with allUsers, filters through users to pick the user responsible for the post so you can use their info*/}
-
-                    {/* <h4>{allUsers.filter(e => e._id === p.creatorId)[0].firstName} {allUsers.filter(e => e._id === p.creatorId)[0].lastName}  
-                    
-                    */}
-
-                 
-
                     <h4>
                         {allUsers.find(e => e._id === p.creatorId) ? `${allUsers.find(e => e._id === p.creatorId).firstName} ${allUsers.find(e => e._id === p.creatorId).lastName}` : 'Unknown User'}
-                    
-
-
                         <span className="date">{ 
                         p.updatedAt.slice(0, 10) ? p.createdAt.slice(0, 10) : p.updatedAt.slice(0, 10)
                         }</span>
                     </h4>
                     <h3 className="previewText">{p.content}</h3>
-                    <button name={p._id} onClick={handleChange}>Click to View</button>
+                    <button className="rounded-full text-[13px] md:text-sm leading-4 inline-flex items-center cursor-pointer transition ease-in-out duration-300 font-semibold font-body text-center justify-center border-0 border-transparent placeholder-white focus-visible:outline-none focus:outline-none  bg-black text-white px-5 md:px-6 lg:px-8 py-4 md:py-3.5 lg:py-4 hover:text-white hover:bg-gray-600 hover:shadow-cart h-12 lg:h-14 mt-1 text-sm lg:text-base w-full sm:w-auto"
+                    name={p._id} onClick={handleChange}>Click to View</button>
                         {/* user.friendsList.includes(String(p.creatorId)) */}
 
                
                                 { temp.friendsList.includes(String(p.creatorId)) ? (
-                                    <button className="badBtn" name={p.creatorId} onClick={handleRemoveFriend}>Following</button>
+                                    <button className="rounded-full text-[13px] md:text-sm leading-4 inline-flex items-center cursor-pointer transition ease-in-out duration-300 font-semibold font-body text-center justify-center border-0 border-transparent placeholder-white focus-visible:outline-none focus:outline-none  bg-sky-500 text-white px-5 md:px-6 lg:px-6 py-4 md:py-3.5 lg:py-2 hover:text-white hover:bg-gray-600 hover:shadow-cart h-12 lg:h-14 mt-1 text-sm lg:text-base w-full sm:w-auto"
+                                     name={p.creatorId} onClick={handleRemoveFriend}>Following</button>
                                 ) : (
-                                    <button className="goodBtn" name={p.creatorId} onClick={handleAddFriend}>Follow</button>
+                                    <button className="rounded-full text-[13px] md:text-sm leading-4 inline-flex items-center cursor-pointer transition ease-in-out duration-300 font-semibold font-body text-center justify-center border-0 border-transparent placeholder-white focus-visible:outline-none focus:outline-none  bg-sky-500 text-white px-5 md:px-6 lg:px-6 py-4 md:py-3.5 lg:py-2 hover:text-white hover:bg-gray-600 hover:shadow-cart h-12 lg:h-14 mt-1 text-sm lg:text-base w-full sm:w-auto"
+                                    name={p.creatorId} onClick={handleAddFriend}>Follow</button>
                                 )
                                 }
                   
