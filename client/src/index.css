@@ -1,4 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
+:root {
+ --btn: rgb(77,93, 73);
+
+
+}
 .homeDiv {
     width: 80vmin;
     margin: 0 auto;
@@ -8,5 +16,5 @@
 
 
 body {
-  background-color: rgb(21, 54, 32);
+  background-color: rgb(255, 255, 255);
 }
