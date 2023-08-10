@@ -53,26 +53,26 @@ export default function Post({
     }
 
     // const friendFeed = posts.filter((p) => user.friendsList.includes(String(p.creatorId)))
+    const reversed = posts.toReversed()
 
     if(currentArticle === null){
     return (
         <>
         <div className="p-8 bg-slate-200 rounded mx-auto mt-20 max-w-[80vmin] px-4 md:px-8 2xl:px-16 md:w-full lg:w-3/5 2xl:w-4/6 flex h-full ltr:md:ml-7 rtl:md:mr-7 flex-col ltr:lg:pl-7 rtl:lg:pr-7">
         <h1 className='title1'>Explore</h1>
-        { posts.map((p, idx) => (
+        { reversed.map((p, idx) => (
 
             <>
             <div className="blogCard">
+           
                 <div>
-                    <img className="img" src={p.img} /> 
-                </div>
-                <div>
-                    <h4>
+                    <h4 className="text-2xl 2xl:text-3xl font-bold text-heading mb-10">
                         {allUsers.find(e => e._id === p.creatorId) ? `${allUsers.find(e => e._id === p.creatorId).firstName} ${allUsers.find(e => e._id === p.creatorId).lastName}` : 'Unknown User'}
-                        <span className="date">{ 
+                        
+                    </h4>
+                    <span className="date">{ 
                         p.updatedAt.slice(0, 10) ? p.createdAt.slice(0, 10) : p.updatedAt.slice(0, 10)
                         }</span>
-                    </h4>
                     <h3 className="previewText">{p.content}</h3>
                     <button className="rounded-full text-[13px] md:text-sm leading-4 inline-flex items-center cursor-pointer transition ease-in-out duration-300 font-semibold font-body text-center justify-center border-0 border-transparent placeholder-white focus-visible:outline-none focus:outline-none  bg-black text-white px-5 md:px-6 lg:px-8 py-4 md:py-3.5 lg:py-4 hover:text-white hover:bg-gray-600 hover:shadow-cart h-12 lg:h-14 mt-1 text-sm lg:text-base w-full sm:w-auto"
                     name={p._id} onClick={handleChange}>Click to View</button>
@@ -88,12 +88,14 @@ export default function Post({
                                 )
                                 }
                   
-                    
+                
                     
                  
                    
                 </div>
-               
+                <div>
+                    <img className="img" src={p.img} /> 
+                </div>
             </div>
 
             </>

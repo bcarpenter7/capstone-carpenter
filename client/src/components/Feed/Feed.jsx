@@ -39,9 +39,11 @@ export default function Feed({ posts, currentArticle, allUsers, setCurrentArticl
     //     console.log(temp.friendsList)
     // }
     console.log(temp.friendsList, "friendsList")
-    const friendFeed = posts.filter((p) => user.friendsList.includes(String(p.creatorId)))
+    const friendFeed = posts.filter((p) => user.friendsList.includes(String(p.creatorId))).toReversed()
     console.log(user.friendsList, user.friendsList.includes(Number(posts[0].creatorId)), posts[0].creatorId, 'test')
     console.log(friendFeed, "FRIEND FEED")
+
+
     if(currentArticle === null){
     return (
         <>

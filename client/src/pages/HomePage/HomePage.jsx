@@ -21,7 +21,7 @@ export default function HomePage({ setPage, user, posts, setCurrentArticle, hand
     picture = user.img
   }
 
-  const userPosts = posts.filter(p => p.creatorId === user._id)
+  const userPosts = posts.filter(p => p.creatorId === user._id).toReversed()
 
 
   function handleChange(e){
@@ -51,9 +51,9 @@ if(!editMode){
 
                 <>
                 <div className="blogCard">
-                    <div>
+                    {/* <div>
                         <img className="img" src={p.img} /> 
-                    </div>
+                    </div> */}
                     <div>
                         <h4>{p.author}  <span className="date">{
                   
@@ -68,7 +68,9 @@ if(!editMode){
                     
                       
                     </div>
-                  
+                    <div>
+                        <img className="img" src={p.img} /> 
+                    </div>
                 </div>
 
                 </>
