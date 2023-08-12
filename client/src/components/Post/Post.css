@@ -25,6 +25,10 @@
     font-weight: 300;
 }
 
+.spaceBetween {
+    justify-content: space-between;
+}
+
 /* 
 .badBtn {
     color: white;
