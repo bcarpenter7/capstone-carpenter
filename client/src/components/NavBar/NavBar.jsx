@@ -12,17 +12,19 @@ export default function NavBar({ setPage, setCurrentArticle, user, setUser }){
     }
 
     return (
-        <div className="flex bg-slate-950 font-sans">
+        <div className="flex bg-slate-950 font-sans spaceBetween text-xl">
             <div className="homeBtnDiv p-8">
-                <button className="text-blue-500 hover:text-blue-800 mr-6 font-sans"
+                <button className="text-white hover:text-zinc-200 mr-6 font-sans"
                  name="null" onClick={handleChange}>Home</button>
             </div>
-            <div className="buttonDiv">
-                <button name="index" onClick={handleChange} className="text-blue-500 hover:text-blue-800 mr-6" >Explore Page</button>
+            <div className="buttonDiv flex text-xl text-white">
+                <button name="index" onClick={handleChange} className=" hover:text-zinc-200 mr-6" >Explore Page</button>
+                <button name="postform" onClick={handleChange} className=" hover:text-zinc-200 mr-6" >Make Post</button>
+                <button name="feed" onClick={handleChange} className=" hover:text-zinc-200 mr-6" >Newsfeed</button>
                 &nbsp; | &nbsp;
-                <button name="postform" onClick={handleChange} className="text-blue-500 hover:text-blue-800 mr-6" >Make Post</button>
-                <button name="feed" onClick={handleChange} className="text-blue-500 hover:text-blue-800 mr-6" >Newsfeed</button>
-                <button onClick={handleLogout} className="text-blue-500 hover:text-blue-800 mr-6">
+                &nbsp; &nbsp;
+             
+                <button onClick={handleLogout} className=" hover:text-zinc-200 mr-6">
                 Logout, {user.username}
                 </button>
             </div>
