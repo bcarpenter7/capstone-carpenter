@@ -58,6 +58,8 @@ export default function Feed({ posts, currentArticle, allUsers, setCurrentArticl
                  <div>   
                     <div className="flex spaceBetween">
                         <div className="flex-col ">
+                            
+                        <img className="mini-pic" src={allUsers.find(e => e._id === p.creatorId).img !== "" ? allUsers.find(e => e._id === p.creatorId).img : "https://images.unsplash.com/photo-1511367461989-f85a21fda167?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZmlsZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=900&q=60"}></img>
                             <h4 className="text-2xl 2xl:text-3xl font-bold text-heading mb-1 ">
                                 {allUsers.find(e => e._id === p.creatorId) ? `${allUsers.find(e => e._id === p.creatorId).firstName} ${allUsers.find(e => e._id === p.creatorId).lastName}` : 'Unknown User'}
                                 

@@ -5,6 +5,8 @@ import LoginPage from '../LoginPage/LoginPage'
 
 export default function RegisterPage({ allUsers, handleCreateUser, setUser }){
 const [accountExists, setAccountExist] = useState(false)
+const [newAccount, setNewAccount] = useState(false)
+
 const [cred, setCred] = useState({
     username: "",
     password: "",
@@ -34,7 +36,8 @@ function handleSubmit(e){
     } else {
         console.log("username is unique, creating a new account")
         handleCreateUser(cred)
-        setUser(cred)
+        setNewAccount(true)
+        setAccountExist(true)
         document.getElementById('errorMsgTwo').style.opacity = 0;
     }
 }
@@ -80,7 +83,7 @@ if(!accountExists){
     )
 } else {
     return (
-        <LoginPage allUsers={allUsers} setUser={setUser}/>
+        <LoginPage allUsers={allUsers} setUser={setUser} newAccount={newAccount}/>
     )
 }
 }

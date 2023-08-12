@@ -67,19 +67,26 @@ export default function Post({
                 <div>
                     <div className="flex spaceBetween">
                         <div className="flex-col">
-                            <h4 className="text-2xl 2xl:text-3xl font-bold text-heading mb-1 ">
-                                {allUsers.find(e => e._id === p.creatorId) ? `${allUsers.find(e => e._id === p.creatorId).firstName} ${allUsers.find(e => e._id === p.creatorId).lastName}` : 'Unknown User'}
-                                
-                            </h4>
+                        
+                            <div className="flex-col">
+                                <img className="mini-pic mb-2" src={allUsers.find(e => e._id === p.creatorId).img !== "" ? allUsers.find(e => e._id === p.creatorId).img : "https://images.unsplash.com/photo-1511367461989-f85a21fda167?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZmlsZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=900&q=60"}></img>
+                            
+                                <h4 className="text-2xl 2xl:text-3xl font-bold mb-1 ">
+                                    {allUsers.find(e => e._id === p.creatorId) ? `${allUsers.find(e => e._id === p.creatorId).firstName} ${allUsers.find(e => e._id === p.creatorId).lastName}` : 'Unknown User'}
+                                    
+                                </h4>
+                            </div>
                             <span className="font-light">{ 
                                 p.updatedAt.slice(0, 10) ? p.createdAt.slice(0, 10) : p.updatedAt.slice(0, 10)
                                 }
                             </span>
                         </div>
-                        <div className="max-width">
+                       
+                    </div>
+                    <div className="max-width">
                             <img className="rounded mb-5" src={p.img} /> 
                         </div>
-                    </div>
+                    
 
                     <h3 className="previewText">{p.content}</h3>
                     <button className="mt-3 mr-2 rounded-full text-[13px] md:text-sm leading-4 inline-flex items-center cursor-pointer transition ease-in-out duration-300 font-semibold font-body text-center justify-center border-0 border-transparent placeholder-white focus-visible:outline-none focus:outline-none  bg-black text-white px-5 md:px-6 lg:px-8 py-4 md:py-3.5 lg:py-4 hover:text-white hover:bg-gray-600 hover:shadow-cart h-12 lg:h-14 text-sm lg:text-base w-full sm:w-auto"

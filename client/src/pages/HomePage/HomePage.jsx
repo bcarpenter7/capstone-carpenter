@@ -63,6 +63,9 @@ if(!editMode){
                     <div>
                     <div className="flex spaceBetween">
                         <div className="flex-col">
+                          <div>
+                          <img className="mini-pic block" src={user.img !== "" ? user.img : "https://images.unsplash.com/photo-1511367461989-f85a21fda167?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZmlsZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=900&q=60"}></img>
+                          </div>
                             <h4 className="text-2xl 2xl:text-3xl font-bold text-heading mb-1 ">
                                 {user.firstName} {user.lastName}
                                 

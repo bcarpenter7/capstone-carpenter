@@ -9,8 +9,8 @@
 }
 
 .profilePicture {
-  width: 20vmin;
-  height: 20vmin;
+  width: 40%;
+  /* height: 20vmin; */
 }
 
 .nameDiv {
