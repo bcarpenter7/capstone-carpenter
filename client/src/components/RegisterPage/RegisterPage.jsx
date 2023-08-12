@@ -12,6 +12,7 @@ const [cred, setCred] = useState({
     img: "",
     firstName: "",
     lastName: "",
+    about: "",
     posts: []
 })
 

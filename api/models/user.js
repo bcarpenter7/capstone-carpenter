@@ -8,7 +8,8 @@ const userSchema = new mongoose.Schema({
     img: {type:String},
     firstName: {type:String},
     lastName: {type: String},
-    posts: [{type: Object}]
+    posts: [{type: Object}],
+    about: {type:String}
 },
 {
     timestamps: true,

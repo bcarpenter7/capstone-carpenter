@@ -22,3 +22,7 @@ body {
 .spaceBetween {
   justify-content: space-between;
 }
+
+.max-width {
+  width: 50%;
+}

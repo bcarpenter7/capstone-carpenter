@@ -23,6 +23,7 @@ export default function Post({
         firstName: user.firstName,
         lastName: user.lastName,
         posts: user.posts,
+        about: user.about,
         _id: user._id
     })
 
@@ -65,7 +66,7 @@ export default function Post({
            
                 <div>
                     <div className="flex spaceBetween">
-                        <div className="flex-col mr-15">
+                        <div className="flex-col">
                             <h4 className="text-2xl 2xl:text-3xl font-bold text-heading mb-1 ">
                                 {allUsers.find(e => e._id === p.creatorId) ? `${allUsers.find(e => e._id === p.creatorId).firstName} ${allUsers.find(e => e._id === p.creatorId).lastName}` : 'Unknown User'}
                                 
@@ -75,8 +76,8 @@ export default function Post({
                                 }
                             </span>
                         </div>
-                        <div>
-                            <img className="max-w-xs max-h-30 rounded ml-20 mb-5" src={p.img} /> 
+                        <div className="max-width">
+                            <img className="rounded mb-5" src={p.img} /> 
                         </div>
                     </div>
 
