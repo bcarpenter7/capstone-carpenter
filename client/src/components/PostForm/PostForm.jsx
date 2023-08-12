@@ -24,7 +24,7 @@ export default function PostForm({ handleCreate, setPage, user }){
     return(
         <>
             <div className="p-8 bg-slate-200 rounded mx-auto mt-20 max-w-[80vmin] px-4 md:px-8 2xl:px-16 md:w-full lg:w-3/5 2xl:w-4/6 flex h-full ltr:md:ml-7 rtl:md:mr-7 flex-col ltr:lg:pl-7 rtl:lg:pr-7">
-            <h4 className="text-2xl 2xl:text-3xl font-bold text-heading mb-10">
+            <h4 className="text-center text-2xl 2xl:text-3xl font-bold text-heading mb-10">
               Create Post
             </h4>
             <form className="w-full mx-auto flex flex-col justify-center" onSubmit={handleSubmit}>
@@ -43,8 +43,6 @@ export default function PostForm({ handleCreate, setPage, user }){
                 <div>
                     <label className="block text-gray-600 font-semibold text-sm leading-none mb-3 cursor-pointer"
                     >Enter Img Url</label>
-                    < br/>
-                    < br/>
                     <input 
                     value={tempPost.img} 
                     name="img"

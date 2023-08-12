@@ -77,22 +77,20 @@ export default function PostDetail({article, handleEdit, setPage, deletePost, ha
             <>
             
                 
-                <div className="container">
-                    <div>
-                    <h1 className="titleDetail"> {article.title} </h1>
-                    </div>
-                    <h3 className="authorName"> {article.author} </h3>
-                    <h3 className="authorCreated"> Published { article.updatedAt.slice(0, 10) ? article.createdAt.slice(0, 10) : article.updatedAt.slice(0, 10)}</h3>
+                <div className="p-8 bg-slate-200 rounded mx-auto mt-20 max-w-[80vmin] px-4 md:px-8 2xl:px-16 md:w-full lg:w-3/5 2xl:w-4/6 flex h-full ltr:md:ml-7 rtl:md:mr-7 flex-col ltr:lg:pl-7 rtl:lg:pr-7">
+                    <div className="mb-3">
+                        <h1 className="text-2xl 2xl:text-3xl font-bold text-heading mb-3"> {user.firstName} {user.lastName} </h1>
+                        <h3 className="block text-gray-600 font-semibold text-sm leading-none mb-3"> Published { article.updatedAt.slice(0, 10) ? article.createdAt.slice(0, 10) : article.updatedAt.slice(0, 10)}</h3>
                     
+                    </div>
+
                     <div>
-                        <img className="imgDetail" src={article.img} /> 
+                        <img className="max-width-2 mb-5" src={article.img} /> 
                     </div>
                     <div>
-                        <br />
-                        <br />
-                        <p className="articleText">{article.content}</p>
-                        <br />
-                        <br />
+                        <p className="previewText mb-5">{article.content}</p>
+
+                     
                     </div>
                 </div>
     
