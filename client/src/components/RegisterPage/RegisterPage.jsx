@@ -33,7 +33,12 @@ function handleSubmit(e){
     if(exist.length > 0){
         console.log("username is NOT unique, rendering error msg")
         document.getElementById('errorMsgTwo').style.opacity = 1;
-    } else {
+    } else if (cred.password.length < 8){
+        document.getElementById('errorMsgThree').style.opacity = 1;
+    } else if (cred.username.length < 1){
+        document.getElementById('errorMsgFour').style.opacity = 1;
+    }
+    else {
         console.log("username is unique, creating a new account")
         handleCreateUser(cred)
         setNewAccount(true)
@@ -66,7 +71,12 @@ if(!accountExists){
             <label className="block text-gray-600 font-semibold text-sm leading-none mb-3 cursor-pointer">Last Name:</label>
             <input className="mb-3 py-2 px-4 md:px-5 w-full appearance-none transition duration-150 ease-in-out border text-input text-xs lg:text-sm font-body placeholder-body min-h-12 transition duration-200 ease-in-out bg-white border-gray-300 focus:outline-none focus:border-heading h-11 md:h-12"
             placeholder="Last Name" onChange={handleChange} name="lastName"></input>
-            <h1 id="errorMsgTwo" className="hidden">An account already exists with this username.</h1>
+            <h1 id="errorMsgTwo" className="text-red">An account already exists with this username.</h1>
+            <h1 id="errorMsgThree" className="text-red">Weak Password</h1>
+            <h1 id="errorMsgFour" className="text-red">Invalid Username</h1>
+
+
+
             <button onClick={handleSubmit}
             className="text-[13px] md:text-sm leading-4 inline-flex items-center cursor-pointer transition ease-in-out duration-300 font-semibold font-body text-center justify-center border-0 border-transparent placeholder-white focus-visible:outline-none focus:outline-none  bg-black text-white px-5 md:px-6 lg:px-8 py-4 md:py-3.5 lg:py-4 hover:text-white hover:bg-gray-600 hover:shadow-cart h-12 lg:h-14 mt-1 text-sm lg:text-base w-full sm:w-auto"
             
