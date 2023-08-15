@@ -1,34 +1,34 @@
-# TechBlog
+# SocialClone
 
 
-This is a full-stack MERN (MongoDB, Express.js, React.js, Node.js) blog application that allows an admin to perform CRUD operations on blog posts. It uses MongoDB as the database to store blog information.
+SocialClone is a social media application using the MERN stack. Users can use the application to create an account, follow their friends, and create posts!
+Deployed @ https://64dac52efb88c10613c52c9f--astonishing-cat-aa9a92.netlify.app/
 
-## Hosted App
-
-You can access the hosted app by visiting the following link: (https://64ca4aa211530b1691cd0642--resonant-rolypoly-eabc9a.netlify.app/)
-
-<img width="395" height="395" alt="Screenshot 2023-08-02 at 8 26 39 AM" src="https://github.com/bcarpenter7/final-final-final-client/assets/126187218/1da29513-8e2e-4d86-bf30-ef05f1e486ca">
-<img width="395" height="395"  alt="Screenshot 2023-08-02 at 8 28 14 AM" src="https://github.com/bcarpenter7/final-final-final-client/assets/126187218/1996eead-202e-4d29-824c-44135be8232b">
+## Images
+<img width="345" alt="Screenshot 2023-08-15 at 6 37 16 PM" src="https://github.com/bcarpenter7/capstone-carpenter/assets/126187218/4885c4f5-ce64-43b8-8da4-cd44a0e47128">
+<img width="365" alt="Screenshot 2023-08-15 at 6 37 52 PM" src="https://github.com/bcarpenter7/capstone-carpenter/assets/126187218/69d23382-5710-4095-856e-ba92b6c5761c">
+<img width="320" alt="Screenshot 2023-08-15 at 6 38 50 PM" src="https://github.com/bcarpenter7/capstone-carpenter/assets/126187218/0914733a-458f-42c4-a9f6-662d021ff785">
+<img width="394" alt="Screenshot 2023-08-15 at 6 39 22 PM" src="https://github.com/bcarpenter7/capstone-carpenter/assets/126187218/a0e80461-8f0a-4339-9931-064c0be25c8b">
 
 ## Features
 
-- User-friendly interface to manage blog posts.
-- Create, Read, Update, and Delete blog posts as an admin.
-- View all blog posts on the front-end.
+-Users can create a personal account and follow their preferred users
+-Users can follow/unfollow different users of the platform and use the explore page to discover other users
+-The app can adjust to different sizes of screens to make the app user friendly
 
 ## Upcoming Features
 
-- Google Authentication: Allow users to sign in with their Google accounts.
-- Comments: Enable users to leave comments on blog posts.
-- Likes: Allow users to like and upvote their favorite blog posts.
-- Tags: Categorize blog posts with tags for easy navigation.
+- User password data encryption
+- The ability to comment, like, and repost other user's posts
+- View another user's profile
 
 ## Tech Stack
 
-- MongoDB: NoSQL database for storing blog information.
-- Express.js: Backend framework for handling HTTP requests.
-- React.js: Frontend library for building user interfaces.
-- Node.js: Runtime environment for server-side JavaScript.
+- MongoDB
+- Express.js
+- React.js
+- Node.js
+
 
 
 
